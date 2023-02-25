@@ -1,1 +1,1 @@
-web: gunicorn mainflyctl deploy:app
+web: gunicorn main deploy:app
