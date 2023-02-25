@@ -1,2 +1,1 @@
-web: gunicorn mainfly:app
-web: python app.py
+web: gunicorn mainflyctl deploy:app

@@ -1,0 +1,11 @@
+line-bot-sdk
+PyHackMD
+flask
+click
+gunicorn
+itsdangerous
+Jinja2
+MarkupSafe
+Werkzeug
+lxml
+pyimgure
