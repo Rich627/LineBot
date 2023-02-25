@@ -1,5 +1,4 @@
 from flask import Flask, request, abort
-from flask_ngrok import run_with_ngrok
 from linebot import (
     LineBotApi, WebhookHandler
 )
@@ -36,15 +35,13 @@ def callback():
 
     return 'OK'
 
-# 修正translate_text()函數
+# 修正 translate_text() 函數
 def translate_text(source, target, text):
     translator = GoogleTranslator(source=source, target=target)
     return translator.translate(text)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    #if event.source.user_id == 'Udeadbeefdeadbeefdeadbeefdeadbeef':
-        #return 'OK'
     if event.message.text[:3] == "@翻英":
         content = translate_text(source='zh-TW', target='en', text=event.message.text[3:])
         message = TextSendMessage(text=content)
@@ -53,6 +50,6 @@ def handle_message(event):
         content = translate_text(source='en', target='zh-TW', text=event.message.text[3:])
         message = TextSendMessage(text=content)
         line_bot_api.reply_message(event.reply_token, message)
+
 if __name__ == "__main__":
-    run_with_ngrok(app) 
     app.run()
