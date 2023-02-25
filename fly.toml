@@ -1,6 +1,6 @@
-# fly.toml file generated for icy-sun-6675 on 2023-02-25T19:25:24+08:00
+# fly.toml file generated for mainfly on 2023-02-25T19:34:15+08:00
 
-app = "app"
+app = "mainfly"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
