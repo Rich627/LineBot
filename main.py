@@ -1,4 +1,9 @@
+!pip install line-bot-sdk
+!pip install deep_translator
+!pip install flask
+!pip install flask-ngrok
 from flask import Flask, request, abort
+from flask_ngrok import run_with_ngrok
 from linebot import (
     LineBotApi, WebhookHandler
 )
