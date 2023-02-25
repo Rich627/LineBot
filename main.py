@@ -19,14 +19,14 @@ handler = WebhookHandler(channel_secret)
 
 @app.route("/", methods=['POST'])
 def callback():
-    # get X-Line-Signature header value
+    
     signature = request.headers['X-Line-Signature']
 
-    # get request body as text
+
     body = request.get_data(as_text=True)
     app.logger.info("Request body: " + body)
 
-    # handle webhook body
+    
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
@@ -35,7 +35,7 @@ def callback():
 
     return 'OK'
 
-# 修正 translate_text() 函數
+
 def translate_text(source, target, text):
     translator = GoogleTranslator(source=source, target=target)
     return translator.translate(text)
